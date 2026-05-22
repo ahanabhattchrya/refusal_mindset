@@ -86,6 +86,30 @@ p.byline {
   font-weight: bold;
 }
 
+.keywords-row {
+      display: flex; flex-wrap: wrap; gap: 2.5rem; margin: 1rem 0 1.5rem;
+    }
+.keyword-tag {
+      background: rgba(201,168,76,.12);
+      border: 1px solid var(--gold);
+      color: var(--ink);
+      font-family: 'Special Gothic Expanded One', sans-serif;
+      font-size: 0.78rem; letter-spacing: 0.15rem; text-transform: uppercase;
+      padding: .3rem .8rem; border-radius: 20px;
+    }
+
+.scroller-content { width: 50%; padding: 2rem; }
+.step { min-height: 80vh; display: flex; align-items: center; padding: 1.5rem; }
+.step p {
+      background: var(--card-bg); border-left: 4px solid var(--gold);
+      padding: 1.5rem; border-radius: 4px;
+      box-shadow: 0 2px 16px rgba(0,0,0,.1); margin: 0; font-size: 1rem;
+    }
+.step p strong {
+      font-family: 'Special Gothic Expanded One', sans-serif;
+      font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--rose); display: block; margin-bottom: .5rem;
+    }
 .pull-quote {
   width: 50%; /* half width of center column of text */
   padding: var(--padding-tiny);
