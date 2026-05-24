@@ -2,7 +2,7 @@
   --color-background: #FAF7F2;
   --color-text: #3E2A1E;
   --color-primary: #3D5941;
-  --color-secondary: #5A7D5F;
+  --color-secondary: #7b51d4;
   --color-accent: #D97642;
   --font-header: 'Chaparral Pro', serif;
   color: var(--color-text);
@@ -13,6 +13,10 @@
   --padding-medium: 100px;
   --padding-medium-neg: -100px;
   --padding-large: 150px;
+  --card-bg: #fffaf3;
+  --gold: #D97642;
+  --ink: #3E2A1E;
+  --rose: #7b51d4;
 }
 
 @font-face {
@@ -69,12 +73,13 @@ header {
     }
     h1 {
       position: absolute;
-      bottom: 2rem;
-      left: 2rem;
+      top: 20%;
+      left: 25%;
+      transform: translate(-50%, -50%);
       margin: 0;
       display: block;
       font-family: var(--font-header);
-      font-size: 3rem;
+      font-size: 2rem;
       max-width: 700px;
     }
   }
@@ -84,6 +89,10 @@ p.byline {
   font-size: 1.2rem;
   font-style: italic;
   font-weight: bold;
+}
+
+.gallery {
+  margin-bottom: 0;
 }
 
 .keywords-row {
@@ -98,13 +107,31 @@ p.byline {
       padding: .3rem .8rem; border-radius: 20px;
     }
 
-.scroller-content { width: 50%; padding: 2rem; }
-.step { min-height: 80vh; display: flex; align-items: center; padding: 1.5rem; }
+.scroller-content {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.step {
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
 .step p {
-      background: var(--card-bg); border-left: 4px solid var(--gold);
-      padding: 1.5rem; border-radius: 4px;
-      box-shadow: 0 2px 16px rgba(0,0,0,.1); margin: 0; font-size: 1rem;
-    }
+  background: var(--card-bg);
+  border-left: 6px solid var(--gold);
+  padding: 2rem;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.08);
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--ink);
+  max-width: 750px;
+}
 .step p strong {
       font-family: 'Special Gothic Expanded One', sans-serif;
       font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
@@ -174,7 +201,7 @@ main {
 }
 
 h1 {
-  background-color: var(--color-secondary);
+  background-color: none;
   color: var(--color-background);
   padding: var(--padding-tiny);
   font-family: var(--font-header);
@@ -183,6 +210,7 @@ h1 {
 
 h2 {
   font-family: var(--font-header);
+  color: var(--color-accent);
   font-size: 2.5rem;
 
   &.animate-in {
@@ -200,10 +228,9 @@ h2 {
     margin-bottom: 0.5rem;
   }
   h3 {
-    margin: 0;
-    font-size: 1.75rem;
-    font-weight: bold;
     font-family: var(--font-header);
+    color: var(--color-accent);
+    font-size: 2.5rem;
   }
   p {
     margin: 0.5rem 0;
@@ -235,7 +262,7 @@ figure {
   .carousel {
   }
   .carousel-cell {
-    width: 66%;
+    width: 30%;
     margin-right: 10px;
     background: #8C8;
     border-radius: 5px;
@@ -378,4 +405,246 @@ nav {
     color: var(--color-background);
     text-decoration: none;
   }
+}
+
+.dimensions-section {
+  padding: 1rem 1rem 5rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dimensions-title {
+  text-align: left;
+  max-width: 850px;
+  margin: 0 auto 3rem auto;
+  margin-bottom: 1rem;
+  margin-top: -2rem;
+  font-size: 3rem;
+  color: var(--color-accent);
+}
+
+.card-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.concept-card {
+  background: #fffdf9;
+  border: 2px solid rgba(123, 81, 212, 0.2);
+  border-radius: 18px;
+  padding: 1.2rem 1.4rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+}
+
+.concept-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  border-color: var(--color-secondary);
+}
+
+.concept-card summary {
+  list-style: none;
+  font-family: 'Special Gothic Expanded One', sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+  color: var(--color-secondary);
+}
+
+.concept-card summary::-webkit-details-marker {
+  display: none;
+}
+
+.concept-card p {
+  margin-top: 1rem;
+  line-height: 1.8;
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+.concept-card[open] {
+  background: #fff8f2;
+  border-color: var(--color-accent);
+}
+
+.card-image-section {
+  display: grid;
+  grid-template-columns: repeat(3, 220px); /* fixed smaller columns */
+  gap: 1.25rem;
+  max-width: 720px; /* tighter overall container */
+  margin: 3rem auto;
+  justify-content: center; /* keeps grid centered */
+}
+
+
+.image-card {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 14px;
+  width: 220px;        /* enforce smaller card size */
+  height: 150px;       /* makes them more “deck-like” */
+}
+
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* prevents distortion */
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.image-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.image-card:hover img {
+  transform: scale(1.05);
+}
+
+/* overlay */
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0));
+  color: white;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.image-card:hover .card-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card-overlay h3 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.card-overlay p {
+  font-size: 0.8rem;
+  margin: 0.25rem 0 0;
+}
+
+.card-image-section {
+  display: grid;
+  grid-template-columns: repeat(2, 280px); /* 2 columns, bigger cards */
+  gap: 1rem; /* tighter spacing */
+  justify-content: center; /* center the whole grid */
+  margin: 3rem auto;
+  max-width: 600px;
+}
+
+.image-card {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 14px;
+  width: 280px;
+  height: 180px; /* bigger, more readable */
+}
+
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.image-card:hover img {
+  transform: scale(1.05);
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0.9rem;
+}
+
+.image-card:hover .card-overlay {
+  background: rgba(0,0,0,0.5);
+}
+
+/* ===== MODAL ===== */
+
+.carousel-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.carousel-modal.active {
+  display: flex;
+}
+
+.carousel-modal-content {
+  width: 80%;
+  max-width: 900px;
+  background: white;
+  border-radius: 16px;
+  padding: 1rem;
+  position: relative;
+}
+
+/* horizontal carousel */
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  scroll-snap-type: x mandatory;
+  padding: 1rem;
+}
+
+.carousel-track img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  scroll-snap-align: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: black;
+  color: white;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+
+.dimensions-section {
+  padding-top: 0.5rem;   /* was larger via padding */
+}
+
+.dimensions-title {
+  margin-bottom: 0.75rem; /* reduces gap under title */
+  margin-top: 0;          /* removes upward push */
+}
+
+.card-image-section {
+  margin-top: -2rem;     /* pulls cards closer to title */
 }
